@@ -22,45 +22,45 @@ class PoetryBotCommandHandler extends CommandHandler with LazyLogging {
     msgText match {
       case "/start" =>
         val text = (startHeader :: commandsHeader :: commands).mkString("\n")
-        logger.info(s"User: $userFirstName $userLastName with userName:$userName has been connected" +
-          " to $botUserName (chatId:$chatId)")
+        logger.info(s"User: $dollar$userFirstName $dollar$userLastName with userName:$dollar$userName has been connected" +
+          " to $dollar$botUserName (chatId:$dollar$chatId)")
         new SendMessage(chatId, text).enableHtml(true) :: Nil
 /*FIXME*/      case "/authors" =>
 /*FIXME*/        val lists = new DerbyDriver().requestLists()
 /*FIXME*/        val text = (listsHeader :: lists).mkString("\n")
-/*FIXME*/        logger.info(s"$botUserName has sent contact information to user with userName:$userName (chatId:$chatId)")
+/*FIXME*/        logger.info(s"$dollar$botUserName has sent contact information to user with userName:$dollar$userName (chatId:$dollar$chatId)")
 /*FIXME*/        new SendMessage(chatId, text).enableHtml(true) :: Nil
 /*FIXME*/      case "/best" =>
 /*FIXME*/        val one = new DerbyDriver().requestNewOne
 /*FIXME*/        if (one.isEmpty) new SendMessage(chatId, newNotAvailable) :: Nil
 /*FIXME*/        else {
-/*FIXME*/          logger.info(s"$botUserName has sent price list to user with userName:$userName (chatId:$chatId)")
+/*FIXME*/          logger.info(s"$dollar$botUserName has sent price list to user with userName:$dollar$userName (chatId:$dollar$chatId)")
 /*FIXME*/          one.map(_.mkString("\n"))
 /*FIXME*/            .map(text => new SendMessage(chatId, text))
 /*FIXME*/        }
       case "/listall" =>
         val lists = new DerbyDriver().requestLists()
         val text = (listsHeader :: lists).mkString("\n")
-        logger.info(s"$botUserName has sent contact information to user with userName:$userName (chatId:$chatId)")
+        logger.info(s"$dollar$botUserName has sent contact information to user with userName:$dollar$userName (chatId:$dollar$chatId)")
         new SendMessage(chatId, text).enableHtml(true) :: Nil
       case "/newone" =>
         val one = new DerbyDriver().requestNewOne
         if (one.isEmpty) new SendMessage(chatId, newNotAvailable) :: Nil
         else {
-          logger.info(s"$botUserName has sent price list to user with userName:$userName (chatId:$chatId)")
+          logger.info(s"$dollar$botUserName has sent price list to user with userName:$dollar$userName (chatId:$dollar$chatId)")
           one.map(_.mkString("\n"))
             .map(text => new SendMessage(chatId, text))
         }
 /*FIXME*/      case "/mails" =>
 /*FIXME*/        val lists = new DerbyDriver().requestLists()
 /*FIXME*/        val text = (listsHeader :: lists).mkString("\n")
-/*FIXME*/        logger.info(s"$botUserName has sent contact information to user with userName:$userName (chatId:$chatId)")
+/*FIXME*/        logger.info(s"$dollar$botUserName has sent contact information to user with userName:$dollar$userName (chatId:$dollar$chatId)")
 /*FIXME*/        new SendMessage(chatId, text).enableHtml(true) :: Nil
 /*FIXME*/      case "/settings" =>
 /*FIXME*/        val one = new DerbyDriver().requestNewOne
 /*FIXME*/        if (one.isEmpty) new SendMessage(chatId, newNotAvailable) :: Nil
 /*FIXME*/        else {
-/*FIXME*/          logger.info(s"$botUserName has sent price list to user with userName:$userName (chatId:$chatId)")
+/*FIXME*/          logger.info(s"$dollar$botUserName has sent price list to user with userName:$dollar$userName (chatId:$dollar$chatId)")
 /*FIXME*/          one.map(_.mkString("\n"))
 /*FIXME*/            .map(text => new SendMessage(chatId, text))
 /*FIXME*/        }

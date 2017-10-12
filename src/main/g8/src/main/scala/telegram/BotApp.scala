@@ -15,8 +15,8 @@ object BotApp extends App with LazyLogging {
   try botsApi.registerBot(new PoetryBot)
   catch {
     case ex: TelegramApiRequestException =>
-      logger.error(s"Registration of $botUserName has been failed", ex)
+      logger.error(s"Registration of $dollar$botUserName has been failed", ex)
       System.exit(1)
   }
-  logger.info(s"Registration of $botUserName has been success")
+  logger.info(s"Registration of $dollar$botUserName has been success")
 }
